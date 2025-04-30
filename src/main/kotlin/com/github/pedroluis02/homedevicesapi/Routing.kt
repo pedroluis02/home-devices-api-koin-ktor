@@ -1,19 +1,16 @@
 package com.github.pedroluis02.homedevicesapi
 
 import com.github.pedroluis02.homedevicesapi.domain.User
-import com.github.pedroluis02.homedevicesapi.domain.UserRepository
 import com.github.pedroluis02.homedevicesapi.domain.UserService
-import com.github.pedroluis02.homedevicesapi.repository.UserRepositoryImpl
-import com.github.pedroluis02.homedevicesapi.service.UserServiceImpl
 import io.ktor.http.*
 import io.ktor.server.application.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
 import kotlinx.serialization.Serializable
+import org.koin.ktor.ext.inject
 
 fun Application.configureRouting() {
-    val repository: UserRepository = UserRepositoryImpl()
-    val service: UserService = UserServiceImpl(repository)
+    val service by inject<UserService>()
 
     routing {
         get("/health") {
