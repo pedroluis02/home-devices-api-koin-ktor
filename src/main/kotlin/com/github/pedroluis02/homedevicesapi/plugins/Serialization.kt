@@ -1,4 +1,4 @@
-package com.github.pedroluis02.homedevicesapi
+package com.github.pedroluis02.homedevicesapi.plugins
 
 import io.ktor.serialization.kotlinx.json.*
 import io.ktor.server.application.*

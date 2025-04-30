@@ -1,5 +1,6 @@
 package com.github.pedroluis02.homedevicesapi
 
+import com.github.pedroluis02.homedevicesapi.plugins.configureSerialization
 import io.ktor.server.application.*
 import io.ktor.server.netty.*
 
@@ -9,6 +10,6 @@ fun main(args: Array<String>) {
 
 fun Application.module() {
     configureSerialization()
-    configureFrameworks()
+    configureDependencyInjection()
     configureRouting()
 }
