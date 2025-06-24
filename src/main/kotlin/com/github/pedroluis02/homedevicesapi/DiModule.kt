@@ -12,6 +12,16 @@ import org.koin.core.module.dsl.bind
 import org.koin.core.module.dsl.singleOf
 import org.koin.dsl.module
 
+val repositoryModule = module {
+    singleOf(::UserRepositoryImpl) {
+        bind<UserRepository>()
+    }
+
+    singleOf(::DeviceRepositoryImpl) {
+        bind<DeviceRepository>()
+    }
+}
+
 val serviceModule = module {
     singleOf(::UserServiceImpl) {
         bind<UserService>()
@@ -22,12 +32,6 @@ val serviceModule = module {
     }
 }
 
-val repositoryModule = module {
-    singleOf(::UserRepositoryImpl) {
-        bind<UserRepository>()
-    }
-
-    singleOf(::DeviceRepositoryImpl) {
-        bind<DeviceRepository>()
-    }
+val appModule = module {
+    includes(repositoryModule, serviceModule)
 }
