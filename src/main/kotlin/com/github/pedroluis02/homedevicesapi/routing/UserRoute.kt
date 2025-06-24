@@ -36,7 +36,3 @@ fun Route.userRoute() {
         call.respond(devices.map(Device::toDto))
     }
 }
-
-private fun User.toDto() = UserDto(id, name)
-
-private fun Device.toDto() = DeviceDto(id!!, name, type, status, createdAt!!.time, userId)
