@@ -16,7 +16,6 @@ import org.koin.ksp.generated.module
 class DeviceModule
 
 val repositoryModule = module {
-    UserRepositoryImpl::class.java.`package`
     singleOf(::UserRepositoryImpl) {
         bind<UserRepository>()
     }
