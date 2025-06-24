@@ -2,8 +2,10 @@ package com.github.pedroluis02.homedevicesapi.repository
 
 import com.github.pedroluis02.homedevicesapi.domain.Device
 import com.github.pedroluis02.homedevicesapi.domain.DeviceRepository
+import org.koin.core.annotation.Single
 import java.util.*
 
+@Single
 class DeviceRepositoryImpl : DeviceRepository {
     private val devices = listOf(
         Device(
